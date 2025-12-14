@@ -24,18 +24,18 @@ function userPlay(userPrompt) {
     }
 }
 function computerPlay(){
-    return Math.floor(Math.random()*4)
+    return Math.floor(Math.random()*3)
 }
 
 let userPrompt = prompt("Rock, Paper, or Scissor?");
 let user = userPlay(userPrompt);
-let computer = computerPlay;
+console.log(user);
+let computer = computerPlay();
 console.log(computer);
 let result = computer - user;
-console.log(result)
-if (result < 0) {
+if (result == -2 || result == 1) {
     console.log("Computer wins")
-} else if (result > 0) {
+} else if (result == 2 || result == -1) {
     console.log("User wins")
 } else {
     console.log("Tie")
