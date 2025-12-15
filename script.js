@@ -17,6 +17,9 @@ paper v rock; 1 v 0: 1 Computer Win
 scissor v rock; 2 v 0: 2 User Win
 scissor v paper; 2 v 1: 1 Computer Win
 */
+let userScore = 0;
+let compScore = 0;
+
 function userPlay(userPrompt) {
     let options = ["rock","paper","scissor"];
     if (options.includes(userPrompt.toLowerCase())) {
@@ -26,17 +29,32 @@ function userPlay(userPrompt) {
 function computerPlay(){
     return Math.floor(Math.random()*3)
 }
+function playGame(rounds) {
+while (rounds != 0) {
+    let userPrompt = prompt("Rock, Paper, or Scissor?");
+    let user = userPlay(userPrompt);
+    console.log(user);
+    let computer = computerPlay();
+    console.log(computer);
+    let result = computer - user;
 
-let userPrompt = prompt("Rock, Paper, or Scissor?");
-let user = userPlay(userPrompt);
-console.log(user);
-let computer = computerPlay();
-console.log(computer);
-let result = computer - user;
-if (result == -2 || result == 1) {
-    console.log("Computer wins")
-} else if (result == 2 || result == -1) {
-    console.log("User wins")
-} else {
-    console.log("Tie")
+    if (result == -2 || result == 1) {
+        console.log("Computer wins")
+        updScore(3, "computer")
+    } else if (result == 2 || result == -1) {
+        console.log("User wins")
+        updScore(3, "user")
+    } else {
+        console.log("Tie")
+    }
+    rounds--;
 }
+}
+function updScore(score, player) {
+    if (player === "user") {
+        userScore += score;
+    } else {
+        compScore += score;
+    }
+}
+playGame(5);
