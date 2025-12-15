@@ -33,9 +33,7 @@ function playGame(rounds) {
 while (rounds != 0) {
     let userPrompt = prompt("Rock, Paper, or Scissor?");
     let user = userPlay(userPrompt);
-    console.log(user);
     let computer = computerPlay();
-    console.log(computer);
     let result = computer - user;
 
     if (result == -2 || result == 1) {
@@ -47,6 +45,9 @@ while (rounds != 0) {
     } else {
         console.log("Tie")
     }
+    console.log("User score: "+userScore);
+    console.log("Computer score: "+compScore);
+    console.log("Rounds left: "+rounds)
     rounds--;
 }
 }
@@ -57,4 +58,5 @@ function updScore(score, player) {
         compScore += score;
     }
 }
-playGame(5);
+let rounds = parseInt(prompt("How many rounds do you want to play?"));
+playGame(rounds);
