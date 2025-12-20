@@ -2,6 +2,11 @@
 
 let userScore = 0;
 let compScore = 0;
+const options = document.querySelector("#options");
+options.addEventListener("click", (e) => {
+    console.log((e.target)['id']);
+    // add switch case here for user play
+});
 
 function userPlay(userPrompt) {
     let options = ["rock","paper","scissor"];
